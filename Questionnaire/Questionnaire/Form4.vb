@@ -5,14 +5,12 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Visible = False
+        Form1.send_but()
 
-        If My.Computer.Network.IsAvailable Then
-            Me.Visible = False
-            Form1.send_but()
-        Else
-            MsgBox("Please Check Your Netwrok Connection!!")
-        End If
+    End Sub
 
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
 
     End Sub
 End Class

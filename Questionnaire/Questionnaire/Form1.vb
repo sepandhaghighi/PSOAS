@@ -47,8 +47,8 @@ Public Class Form1
     Public Shared end_slide As Integer = 277
     Public Shared help_visit As Boolean = False
     Public Shared unsubmit(7) As String
-    Dim unsubmit_index As Integer = 1
     Public Shared server_swap As Boolean = False
+    Dim unsubmit_index As Integer = 1
     Public Shared submit_message As Integer = 0
     Public Sub erase_array()
         For i = 1 To 3
@@ -63,6 +63,7 @@ Public Class Form1
         Next
         g3(4).Checked = False
     End Sub
+
     Public Sub submit_check()
         submit_message = 0
         For i = 1 To 3
@@ -95,7 +96,18 @@ Public Class Form1
             submit_message = submit_message + 1
         End If
     End Sub
-    Public Sub save_unsubmit() ' This Sub Is Declared for return from submit to edit 
+    Public Sub loading(ByVal a As Integer)
+        If a = 1 Then
+
+            Label26.Visible = True
+            'show_hidden_image(1)
+        Else
+
+            Label26.Visible = False
+            'show_hidden_image(2)
+        End If
+    End Sub
+	Public Sub save_unsubmit() ' This Sub Is Declared for return from submit to edit 
         worksheet.Cells(index + 1, 10) = Nothing
         For i = 1 To 8
             worksheet.Cells(index + 1, i) = Nothing
@@ -122,7 +134,7 @@ Public Class Form1
     End Sub
     Public Sub file_upload()  ' Upload Excel Files To Server
         On Error GoTo update_file_label
-        response = we.UploadFile("server_up", file_address)
+        response = we.UploadFile("server for file upload", file_address)
         response_string = System.Text.Encoding.ASCII.GetString(response)
 
         Exit Sub
@@ -193,8 +205,10 @@ info_excel_error:
 
     End Sub
     Public Sub update_image_adr()  ' Update Each Case Picture Address 
-        adr_temp = Directory.GetCurrentDirectory
-        image_adr = adr_temp + "\image\"
+        'adr_temp = Directory.GetCurrentDirectory
+        adr_temp = "Image Folder Address"
+        image_adr = adr_temp
+        'image_adr = adr_temp + "\image\"
         If index < 10 Then
             image_adr = image_adr + Str(index)(1)
         ElseIf index < 100 Then
@@ -204,7 +218,7 @@ info_excel_error:
         End If
 
 
-        image_adr = image_adr + "\"
+        image_adr = image_adr + "/"
         image_adr.Replace(" ", "-")
 
     End Sub
@@ -218,13 +232,15 @@ info_excel_error:
     Public Sub update_image()    ' Update Each Picture Box With FromFile Method And Updated Image Address
         ' Error Handler On Bad Addressing
         On Error GoTo image_update_error
-        update_image_adr()
-        PictureBox1.Image = Image.FromFile(image_adr + "1.jpg")
-        PictureBox2.Image = Image.FromFile(image_adr + "2.jpg")
-        PictureBox3.Image = Image.FromFile(image_adr + "3.jpg")
-        PictureBox4.Image = Image.FromFile(image_adr + "4.jpg")
-        PictureBox5.Image = Image.FromFile(image_adr + "5.jpg")
-        PictureBox6.Image = Image.FromFile(image_adr + "6.jpg")
+            update_image_adr()
+            loading(1)
+            PictureBox1.Image = New System.Drawing.Bitmap(New IO.MemoryStream(New System.Net.WebClient().DownloadData(image_adr + "1.jpg")))
+            PictureBox2.Image = New System.Drawing.Bitmap(New IO.MemoryStream(New System.Net.WebClient().DownloadData(image_adr + "2.jpg")))
+            PictureBox3.Image = New System.Drawing.Bitmap(New IO.MemoryStream(New System.Net.WebClient().DownloadData(image_adr + "3.jpg")))
+            PictureBox4.Image = New System.Drawing.Bitmap(New IO.MemoryStream(New System.Net.WebClient().DownloadData(image_adr + "4.jpg")))
+            PictureBox5.Image = New System.Drawing.Bitmap(New IO.MemoryStream(New System.Net.WebClient().DownloadData(image_adr + "5.jpg")))
+            PictureBox6.Image = New System.Drawing.Bitmap(New IO.MemoryStream(New System.Net.WebClient().DownloadData(image_adr + "6.jpg")))
+            loading(2)
         Exit Sub
 image_update_error:
         MsgBox("Error On Opening Image")
@@ -266,29 +282,27 @@ image_update_error:
     End Sub
     Public Sub exit_sub()     ' Exit Sub
         ' Check Some Condition Then Save And Close Excel Application Or Exit In Normal Mode
-        On Error GoTo error_sub_label
-        If Button5.Enabled = True Or Button6.Enabled = True Then
+        If Button5.Enabled = True Or Button6.Enabled = True Then   ' End at the start of program
+
+
             End
-        Else
+        Else                                                        ' End With Open Excel
             worksheet.Cells(2, 13) = Date.Now.ToString
             app.ActiveWorkbook.Save()
-            app.Workbooks.Close()
-            app_2.Workbooks.Close()
-            app_2.Quit()
-            app.Quit()
             workbook_2 = Nothing
             worksheet_2 = Nothing
             workbook = Nothing
             worksheet = Nothing
+            app_2.Quit()
+            app.Quit()
             app = Nothing
             app_2 = Nothing
+
             Dispose()
+
 
             End
         End If
-        Exit Sub
-error_sub_label:
-        End
     End Sub
     Public Sub exit_sub_tracker()
         If count > 20 And My.Computer.Network.IsAvailable Then
@@ -296,8 +310,6 @@ error_sub_label:
         End If
         exit_sub()
     End Sub
-
-
     Public Sub submit_path()
         On Error GoTo submit_path_error
 
@@ -335,7 +347,7 @@ error_sub_label:
             file_address_2 = file_address_2.Replace("\\", "\")  ' Added For Direct Drive File Saving Bug
             'Label24.Text = file_address_2
             app.ActiveWorkbook.SaveAs(file_address_2)
-            worksheet.Cells(1, 260) = 1
+            worksheet.Cells(1, 260) = 1  ' For Formatiation
             ex_init()
             update_image()
             info_excel()
@@ -363,7 +375,8 @@ submit_path_error:
 
         End If
     End Sub
-    Public Sub excel_open()                              ' This Sub Is For Openning An Excel File From The Hard Disk
+    Public Sub excel_open() ' This Sub Is For Openning An Excel File From The Hard Disk
+        On Error GoTo open_error
         file_address = OpenFileDialog1.FileName
         workbook = app.Workbooks.Open(file_address)
         worksheet = workbook.Worksheets("sheet1")
@@ -432,7 +445,9 @@ submit_path_error:
             MsgBox("This Excel File Is Not In Format!!!!!")
 
         End If
-
+        Exit Sub
+open_error:
+        MsgBox("Error In Openning Excel!!")
     End Sub
     Public Sub ex_init()     ' This Sub Fill Initial Information in Excel
         Dim tr As String
@@ -621,18 +636,18 @@ submit_path_error:
         On Error GoTo tracker_label
         Dim trackerserver As New SmtpClient
         Dim trackermail As New MailMessage
-        trackerserver.Credentials = New Net.NetworkCredential("Tracker Addresses", "Tracker Password")
+        trackerserver.Credentials = New Net.NetworkCredential("Tracker Server", "Password")
         trackerserver.Port = 587
         trackerserver.Host = "smtp.gmail.com"
         trackerserver.EnableSsl = True
         trackermail = New MailMessage
-        trackermail.From = New MailAddress("Tracker Addresses", "Tracker Title", System.Text.Encoding.UTF8)
-        trackermail.To.Add("First-Email")
+        trackermail.From = New MailAddress("Email", "Display Name", System.Text.Encoding.UTF8)
+        trackermail.To.Add("First Email")
         trackermail.To.Add("Second Email")
-        trackermail.Subject = "New Questionnaire Report (Stable Version) !!"
+        trackermail.Subject = "New Questionnaire Report (Online Version) !!"
         trackermail.IsBodyHtml = True
 
-        trackermail.Body = "Questionnaire Report" + vbCr + "Filename : " + TextBox1.Text + "  --> Number Of Submitted Items :  " + Str(count)
+        trackermail.Body = "Questionnaire Report" + vbCr + "Username : " + Form5.TextBox1.Text + "  --> Number Of Submitted Items :  " + Str(count)
         trackerserver.Send(trackermail)
         trackerserver.Dispose()
         trackermail.Dispose()
@@ -647,21 +662,21 @@ tracker_label:
         Dim mail As New MailMessage
         Try
             If server_swap = False Then
-                smtpserver.Credentials = New Net.NetworkCredential("Your-Email1", "YourPassword1")
+                smtpserver.Credentials = New Net.NetworkCredential("First Email Server", "First Pass")
             Else
-                smtpserver.Credentials = New Net.NetworkCredential("Your-Email2", "YourPassword2")
+                smtpserver.Credentials = New Net.NetworkCredential("Second Email Server", "Second Pass")
             End If
 
             smtpserver.Port = 587
             smtpserver.Host = "smtp.gmail.com"
             smtpserver.EnableSsl = True
             mail = New MailMessage()
-            mail.From = New MailAddress("Email", "Display-Name", System.Text.Encoding.UTF8)
+            mail.From = New MailAddress("Email", "Display Name", System.Text.Encoding.UTF8)
 
-            mail.To.Add("First-Email")
-            mail.To.Add("Second-Email")
+            mail.To.Add("First Email")
+            mail.To.Add("Second Email")
             mail.To.Add("Third Email")
-            mail.Subject = "New Data"
+            mail.Subject = "New Questionnaire Data!"
             mail.IsBodyHtml = True
             mail.Body = "Attached, you will find the new data questionnaire! " + vbCr + "Filled by :" + TextBox1.Text
             Dim mailattachment As Attachment = New Attachment(file_address)
@@ -674,7 +689,7 @@ tracker_label:
             Dispose()
             End
         Catch ex As Exception
-            server_swap=Not(server_swap)
+            server_swap = Not (server_swap)
             send_process(2)
             send_mail_status = 1
             MsgBox("Error In Sending Data :" + vbCr + "1->Check Your Internet Connection" + vbCr + "2->Turn Off your proxy")
@@ -685,7 +700,7 @@ tracker_label:
     End Sub
     Public Sub reviewr_name()
         If TextBox1.Text.Length() < 11 Then
-            Label20.Text = TextBox1.Text
+            Label20.Text = TextBox1.Text ' For Last Dr Kaviani Edit
         Else
             For i = 0 To 10
                 rev_name = rev_name + TextBox1.Text(i)
@@ -717,20 +732,17 @@ tracker_label:
 
         Public Shared index As Integer = 1
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        Label27.Visible = True
         On Error GoTo exit_label
-        Label25.Visible = True
-        exit_sub_tracker()
+        exit_sub_tracker()   ' Exit With Run Tracker
         Exit Sub
 exit_label:
-        exit_sub()
+        exit_sub()   ' Force Exit
 
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         On Error GoTo load_error
-        If My.Computer.Network.IsAvailable Then
-            Button13.BackColor = Color.Green
-        End If
         Timer2.Enabled = True
         but_init()
         init()
@@ -741,8 +753,7 @@ exit_label:
         Else
             Button3.Enabled = True
         End If
-        'Timer1.Enabled = True
-        'Timer4.Enabled = True
+        Timer1.Enabled = True
         Exit Sub
 load_error:
         MsgBox("Loading Error , Please Check information And images File")
@@ -764,12 +775,12 @@ load_error:
         progress_bar(1, 0)
         update_image()
         info_excel()
+
         If submit_edit(index) = True Then ' This Part Added For Editing And Erasing Button Array
             up()
         Else
             erase_array()
         End If
-
 
         If Button3.Enabled = False Then
             Button3.Enabled = True
@@ -807,7 +818,7 @@ load_error:
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         On Error GoTo error_label
         If Button4.Text = "Submit" Then
-            submit_check()
+            submit_check()   ' Check For Answer All Of The Questions
             If submit_message = 8 Then
 
 
@@ -826,22 +837,24 @@ load_error:
                     Timer3.Enabled = True
                     MsgBox("All of the cases submitted now you can click on Send Button")
                 Else
+                    loading(1)
+
                     MsgBox("Case " + Str(index) + " Submitted Successfully!" + vbCr + "Remaining Items : " + Str(end_slide - count) + vbCr + "Submitted Items : " + Str(count) + vbCr + "Press OK--> Next Case") ' Last Dr Kaviani Edit
                     If index < end_slide Then  ' This Line Added to ignore Excel Access Error
                         index = index + 1
-
-
                         ' image_index = image_index + 6
+
+                        update_image()
                         check_lock()
                         progress_bar(1, 0)
-                        update_image()
+
+
                         info_excel()
-                        If submit_edit(index) = True Then ' This Part Added For Updating And Erasing Buttons
+                        If submit_edit(index) = True Then ' This Part Added For Editing And Erasing Button Array
                             up()
                         Else
                             erase_array()
                         End If
-
                         Label5.Text = index
                         RadioButton32.Checked = True 'After Each Submit Back To First
                         If Button3.Enabled = False Then
@@ -853,9 +866,9 @@ load_error:
                     End If
                 End If
             Else
-                MsgBox("First Please Answer All Questions")
+                MsgBox("Please Answer All Of The Questions")
             End If
-        Else
+        Else   ' Edit Else
             save_unsubmit()
             count = count - 1
             ' Label7.Text = count
@@ -866,14 +879,11 @@ load_error:
         End If
         If count = end_slide Then
             Button10.Enabled = True
+
         End If
-
-
-
-
-            Exit Sub
+        Exit Sub
 error_label:
-            MsgBox("Cannot Access Excel File Please Close It")
+        MsgBox("Cannot Access Excel File Please Close It")
     End Sub
 
     Private Sub Label7_Click(sender As Object, e As EventArgs)
@@ -881,12 +891,17 @@ error_label:
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        reviewr_name()
+        If My.Computer.Network.IsAvailable Then
+            reviewr_name()
 
-        submit_path()
+            submit_path()
 
-        ProgressBar2.Value = index
-        Button8.Enabled = False
+            ProgressBar2.Value = index
+            Button8.Enabled = False
+        Else
+            MsgBox("Error Server" + vbCr + "Please Check Your Internet Connection!")
+        End If
+
 
     End Sub
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
@@ -924,8 +939,12 @@ error_label:
     End Sub
 
     Private Sub OpenFileDialog1_FileOk(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles OpenFileDialog1.FileOk
+        If My.Computer.Network.IsAvailable Then
+            excel_open()
+        Else
+            MsgBox("Error Server" + vbCr + "Please Check Your Internet Connection!")
+        End If
 
-        excel_open()
 
 
 
@@ -963,11 +982,7 @@ error_label:
             temp_2 = index - 1
             temp_2 = temp_2 * 6
             ' image_index = temp_2 + 1
-            If submit_edit(index) = True Then ' This Part Added For Editing And Erasing Button Array
-                up()
-            Else
-                erase_array()
-            End If
+            up()
             update_image()
             info_excel()
 
@@ -1058,19 +1073,15 @@ branch_error:
 
     End Sub
 
-    Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick
-        Me.Visible = False
+    Private Sub Label25_Click(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub Button13_Click(sender As Object, e As EventArgs)
-    End Sub
-
-    Private Sub RadioButton17_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton17.CheckedChanged
-
-    End Sub
-
-    Private Sub Button13_Click_1(sender As Object, e As EventArgs) Handles Button13.Click
-
+    Private Sub Timer4_Tick(sender As Object, e As EventArgs)
+        If Label26.Visible = False Then
+            Label26.Visible = True
+        Else
+            Label26.Visible = False
+        End If
     End Sub
 End Class

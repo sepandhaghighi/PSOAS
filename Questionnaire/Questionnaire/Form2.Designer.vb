@@ -48,36 +48,36 @@ Partial Class Form2
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Times New Roman", 10.875!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Teal
         Me.Label1.Location = New System.Drawing.Point(100, 77)
         Me.Label1.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(810, 36)
+        Me.Label1.Size = New System.Drawing.Size(722, 33)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "1. Create a  New Excel File By Clicking on ""New File"" Button"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Times New Roman", 10.875!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Teal
         Me.Label2.Location = New System.Drawing.Point(100, 140)
         Me.Label2.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(926, 36)
+        Me.Label2.Size = New System.Drawing.Size(833, 33)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "2. Submit Your Name ( After This Step You Can't Change File Location)"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Times New Roman", 10.875!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Teal
         Me.Label3.Location = New System.Drawing.Point(100, 200)
         Me.Label3.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(1488, 36)
+        Me.Label3.Size = New System.Drawing.Size(1337, 33)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "3.Complete The Questionnaire For Each Case And Click on ""Submit"" Button  (There a" & _
     "re 8 Questions For Each Case)"
@@ -85,12 +85,12 @@ Partial Class Form2
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Times New Roman", 10.875!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Teal
         Me.Label4.Location = New System.Drawing.Point(100, 262)
         Me.Label4.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(1032, 36)
+        Me.Label4.Size = New System.Drawing.Size(918, 33)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "4.You Can Go Back And Forward Between Cases By ""Next"" And ""Prev"" Button "
         '
@@ -107,8 +107,8 @@ Partial Class Form2
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(758, 600)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.Button1.Location = New System.Drawing.Point(730, 647)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(6)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(276, 67)
         Me.Button1.TabIndex = 5
@@ -130,12 +130,12 @@ Partial Class Form2
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Font = New System.Drawing.Font("Times New Roman", 13.875!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.Teal
         Me.Label7.Location = New System.Drawing.Point(46, 479)
         Me.Label7.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(326, 43)
+        Me.Label7.Size = New System.Drawing.Size(311, 42)
         Me.Label7.TabIndex = 8
         Me.Label7.Text = "Open Recent File :"
         '
@@ -165,12 +165,12 @@ Partial Class Form2
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Times New Roman", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Font = New System.Drawing.Font("Times New Roman", 10.125!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.Teal
         Me.Label10.Location = New System.Drawing.Point(54, 558)
         Me.Label10.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(1668, 35)
+        Me.Label10.Size = New System.Drawing.Size(1541, 31)
         Me.Label10.TabIndex = 11
         Me.Label10.Text = "At The End You Can Upload Excel File Directly To The Server By Clicking On The""Se" & _
     "nd Data"" Button (Please Confirm Message )"
@@ -178,24 +178,24 @@ Partial Class Form2
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Font = New System.Drawing.Font("Times New Roman", 10.875!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.Teal
         Me.Label11.Location = New System.Drawing.Point(100, 325)
         Me.Label11.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(906, 36)
+        Me.Label11.Size = New System.Drawing.Size(820, 33)
         Me.Label11.TabIndex = 12
         Me.Label11.Text = "5.You Can See Unsubmitted Cases By Clicking on  ""Items List"" Button"
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Font = New System.Drawing.Font("Times New Roman", 10.875!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.Teal
         Me.Label12.Location = New System.Drawing.Point(100, 381)
         Me.Label12.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(960, 36)
+        Me.Label12.Size = New System.Drawing.Size(859, 33)
         Me.Label12.TabIndex = 13
         Me.Label12.Text = "6.You Can Hide/Show Images By Clicking on ""Show/Hide Images"" Button"
         '
@@ -205,7 +205,7 @@ Partial Class Form2
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(1800, 677)
+        Me.ClientSize = New System.Drawing.Size(1863, 762)
         Me.ControlBox = False
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label11)
@@ -222,7 +222,7 @@ Partial Class Form2
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.Margin = New System.Windows.Forms.Padding(6)
         Me.Name = "Form2"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Questionnaire"

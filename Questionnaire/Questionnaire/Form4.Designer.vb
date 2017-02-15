@@ -31,9 +31,10 @@ Partial Class Form4
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(46, 106)
+        Me.Button1.Location = New System.Drawing.Point(92, 204)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(113, 35)
+        Me.Button1.Size = New System.Drawing.Size(226, 67)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "Yes"
         Me.Button1.UseVisualStyleBackColor = True
@@ -41,9 +42,10 @@ Partial Class Form4
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
-        Me.Button2.Location = New System.Drawing.Point(222, 106)
+        Me.Button2.Location = New System.Drawing.Point(444, 204)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(113, 35)
+        Me.Button2.Size = New System.Drawing.Size(226, 67)
         Me.Button2.TabIndex = 1
         Me.Button2.Text = "No"
         Me.Button2.UseVisualStyleBackColor = True
@@ -52,20 +54,22 @@ Partial Class Form4
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
-        Me.Label1.Location = New System.Drawing.Point(42, 26)
+        Me.Label1.Location = New System.Drawing.Point(84, 42)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(321, 38)
+        Me.Label1.Size = New System.Drawing.Size(661, 72)
         Me.Label1.TabIndex = 2
-        Me.Label1.Text = "         Are you sure to submit the final result?" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "After submission, you can not " & _
-    "change your answers."
+        Me.Label1.Text = "          Are you sure to submit the final result?" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "After submission, you can not" & _
+    " change your answers."
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Times New Roman", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
-        Me.Label2.Location = New System.Drawing.Point(24, 75)
+        Me.Label2.Location = New System.Drawing.Point(48, 144)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(114, 17)
+        Me.Label2.Size = New System.Drawing.Size(230, 34)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Remaining Items :"
         '
@@ -73,17 +77,20 @@ Partial Class Form4
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Times New Roman", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
-        Me.Label3.Location = New System.Drawing.Point(144, 75)
+        Me.Label3.Location = New System.Drawing.Point(288, 144)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(114, 17)
+        Me.Label3.Size = New System.Drawing.Size(230, 34)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Remaining Items :"
         '
         'Form4
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(391, 167)
+        Me.AutoSize = True
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.ClientSize = New System.Drawing.Size(782, 321)
         Me.ControlBox = False
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -91,6 +98,7 @@ Partial Class Form4
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.Name = "Form4"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Questionnaire"

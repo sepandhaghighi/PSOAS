@@ -117,9 +117,8 @@ Partial Class Form1
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.Button12 = New System.Windows.Forms.Button()
-        Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.Button13 = New System.Windows.Forms.Button()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.Label27 = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -710,38 +709,32 @@ Partial Class Form1
         Me.Button12.Name = "Button12"
         Me.Button12.UseVisualStyleBackColor = True
         '
-        'Timer4
+        'Label26
         '
-        Me.Timer4.Interval = 600
+        resources.ApplyResources(Me.Label26, "Label26")
+        Me.Label26.Name = "Label26"
         '
-        'Label25
+        'Label27
         '
-        resources.ApplyResources(Me.Label25, "Label25")
-        Me.Label25.Name = "Label25"
-        '
-        'Button13
-        '
-        resources.ApplyResources(Me.Button13, "Button13")
-        Me.Button13.BackColor = System.Drawing.Color.Red
-        Me.Button13.Name = "Button13"
-        Me.Button13.UseVisualStyleBackColor = False
+        resources.ApplyResources(Me.Label27, "Label27")
+        Me.Label27.Name = "Label27"
         '
         'Form1
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ControlBox = False
-        Me.Controls.Add(Me.Button13)
-        Me.Controls.Add(Me.Label25)
+        Me.Controls.Add(Me.Label27)
+        Me.Controls.Add(Me.Label26)
         Me.Controls.Add(Me.Button12)
         Me.Controls.Add(Me.Label22)
-        Me.Controls.Add(Me.Label20)
-        Me.Controls.Add(Me.GroupBox7)
-        Me.Controls.Add(Me.GroupBox6)
-        Me.Controls.Add(Me.GroupBox9)
-        Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox8)
+        Me.Controls.Add(Me.GroupBox5)
+        Me.Controls.Add(Me.Label20)
         Me.Controls.Add(Me.Label21)
+        Me.Controls.Add(Me.GroupBox6)
+        Me.Controls.Add(Me.GroupBox7)
+        Me.Controls.Add(Me.GroupBox9)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.Label19)
         Me.Controls.Add(Me.Label18)
@@ -905,8 +898,8 @@ Partial Class Form1
     Friend WithEvents Label24 As System.Windows.Forms.Label
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents Button12 As System.Windows.Forms.Button
-    Friend WithEvents Timer4 As System.Windows.Forms.Timer
     Friend WithEvents Label25 As System.Windows.Forms.Label
-    Friend WithEvents Button13 As System.Windows.Forms.Button
+    Friend WithEvents Label26 As System.Windows.Forms.Label
+    Friend WithEvents Label27 As System.Windows.Forms.Label
 
 End Class
